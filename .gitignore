@@ -1,0 +1,7 @@
+node_modules/
+webapp/**/node_modules/
+webapp/server/public/
+.env
+*.log
+.DS_Store
+data/ask_real_estate.sqlite3

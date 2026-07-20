@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Deploy چیک — ASK REAL ESTATE</title>
+    <style>
+        body { font-family: system-ui, sans-serif; padding: 24px; max-width: 640px; margin: auto; }
+        .ok { color: #2e7d32; font-weight: bold; }
+        .bad { color: #c62828; font-weight: bold; }
+        li { margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <h1>Netlify deploy چیک</h1>
+    <ul id="list"></ul>
+    <p id="sum"></p>
+    <script>
+        const files = ['css/style.css', 'js/core.js', 'js/fr-layout.js', 'assets/logo.png'];
+        const list = document.getElementById('list');
+        const sum = document.getElementById('sum');
+        Promise.all(
+            files.map((f) =>
+                fetch(f, { method: 'HEAD' }).then((r) => ({ f, ok: r.ok, status: r.status }))
+            )
+        ).then((rows) => {
+            let good = 0;
+            rows.forEach(({ f, ok, status }) => {
+                const li = document.createElement('li');
+                li.innerHTML = ok
+                    ? `<span class="ok">✓ ${f}</span>`
+                    : `<span class="bad">✗ ${f} (${status})</span>`;
+                list.appendChild(li);
+                if (ok) good++;
+            });
+            if (good === files.length) {
+                sum.innerHTML = '<span class="ok">سب ٹھیک — index.html کھولیں۔</span>';
+            } else {
+                sum.innerHTML =
+                    '<span class="bad">غلط deploy — صرف HTML اپلوڈ ہوا۔ Desktop کی zip یا netlify-publish (Ctrl+A) دوبارہ Deploys پر ڈالیں۔</span>';
+            }
+        });
+    </script>
+</body>
+</html>

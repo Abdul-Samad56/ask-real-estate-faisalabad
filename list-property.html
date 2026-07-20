@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اپنی پراپرٹی درج کریں | List Your Property — ASK REAL ESTATE</title>
+    <meta name="description" content="List your house, shop or plot for sale or rent in Faisalabad. فیصل آباد میں پراپرٹی درج کریں۔">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/realtors.css">
+</head>
+<body class="fr-site" data-page="list-property.html">
+    <div id="fr-layout"></div>
+
+    <section class="fr-page-hero">
+        <h1>اپنی پراپرٹی درج کریں</h1>
+        <p class="fr-bi-sub">فروخت یا کرایہ پر دینے کے لیے تفصیلات بھیجیں — ہماری ٹیم جلد رابطہ کرے گی</p>
+        <p class="fr-bi-sub fr-bi-sub--en">Submit details to sell or rent — our team will contact you soon</p>
+    </section>
+
+    <div class="fr-page-body fr-list-property-page">
+        <div class="fr-list-intro">
+            <p>اگر آپ اپنا <strong>مکان، دکان، آفس، پلاٹ</strong> بیچنا یا کرایہ پر دینا چاہتے ہیں تو نیچے فارم بھریں۔ Zameen کی طرح پہلے <strong>Google یا Facebook</strong> سے لاگ ان کریں — پھر درخواست cloud database میں محفوظ ہوگی۔</p>
+            <p class="fr-bi-sub--en">Sign in with Google or Facebook to submit — like Zameen.com. Browse the rest of the site without an account.</p>
+        </div>
+
+        <div id="authGate" class="fr-auth-gate fr-auth-gate--inline" hidden>
+            <div class="fr-auth-gate-inner">
+                <h3>پراپرٹی درج کرنے کے لیے اکاؤنٹ بنائیں</h3>
+                <p>ہر پراپرٹی الگ اکاؤنٹ سے درج ہوگی — ایڈمن ڈیش بورڈ میں سب کا ریکارڈ ایک جگہ نظر آئے گا</p>
+
+                <div id="listAuthCloud">
+                    <p class="fr-auth-gate-note">گوگل یا فیس بک سے محفوظ لاگ ان</p>
+                    <div class="fr-auth-buttons">
+                        <button type="button" class="fr-auth-btn fr-auth-google" id="listBtnGoogle">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+                            Google
+                        </button>
+                        <button type="button" class="fr-auth-btn fr-auth-facebook" id="listBtnFacebook">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            Facebook
+                        </button>
+                    </div>
+                    <a href="login.html?redirect=list-property.html" class="fr-auth-link">یا لاگ ان صفحہ کھولیں</a>
+                </div>
+
+                <div id="listAuthLocal" hidden>
+                    <form id="listLocalLoginForm" class="fr-auth-local-form">
+                        <label>Gmail / Email <input type="email" id="listLocalEmail" required autocomplete="email"></label>
+                        <label>پاس ورڈ <input type="password" id="listLocalPassword" required minlength="6" autocomplete="current-password"></label>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <p id="listAuthSetup" class="fr-auth-setup" hidden>Supabase کنفیگر نہیں — site-config.js میں url اور anonKey لگائیں (یا local اکاؤنٹ استعمال کریں)</p>
+            </div>
+        </div>
+
+        <div id="listPropertyContent">
+        <form class="fr-list-form fr-inquiry-form" id="ownerPropertyForm">
+            <h3 class="fr-section-heading-bi">
+                <span>پراپرٹی کی تفصیلات</span>
+                <span class="fr-bi-sub--en">Property details</span>
+            </h3>
+
+            <div class="fr-list-form-grid">
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listPurpose">
+                        <span class="fr-label-ur">مقصد <span class="fr-req">*</span></span>
+                        <span class="fr-label-en">Purpose</span>
+                    </label>
+                    <select id="listPurpose" required>
+                        <option value="">— منتخب / Select —</option>
+                        <option value="sale">فروخت کرنا چاہتا/چاہتی ہوں — I want to sell</option>
+                        <option value="rent">کرایہ پر دینا چاہتا/چاہتی ہوں — I want to rent out</option>
+                    </select>
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listType">
+                        <span class="fr-label-ur">پراپرٹی کی قسم <span class="fr-req">*</span></span>
+                        <span class="fr-label-en">Property type</span>
+                    </label>
+                    <select id="listType" required>
+                        <option value="">— منتخب / Select —</option>
+                        <optgroup label="مکان / Residential">
+                            <option value="house">مکان / House</option>
+                            <option value="room">کمرہ / Room</option>
+                            <option value="flat">فلیٹ / Flat</option>
+                            <option value="penthouse">Penthouse</option>
+                            <option value="farmhouse">فارم ہاؤس / Farmhouse</option>
+                        </optgroup>
+                        <optgroup label="کمرشل / Commercial">
+                            <option value="office">آفس / Office</option>
+                            <option value="shop">دکان / Shop</option>
+                            <option value="hall">ہال / Hall</option>
+                            <option value="building">عمارت / Building</option>
+                            <option value="factory">فیکٹری / Factory</option>
+                            <option value="warehouse">گودام / Warehouse</option>
+                            <option value="other">دیگر / Other</option>
+                        </optgroup>
+                        <optgroup label="پلاٹ / Plots">
+                            <option value="residential_plot">رہائشی پلاٹ / Residential plot</option>
+                            <option value="commercial_plot">کمرشل پلاٹ / Commercial plot</option>
+                            <option value="agricultural">زرعی زمین / Agricultural land</option>
+                            <option value="industrial">صنعتی زمین / Industrial land</option>
+                            <option value="plot">پلاٹ / Plot</option>
+                            <option value="lower_portion">لوئر پورشن / Lower portion</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listArea">
+                        <span class="fr-label-ur">علاقہ / سوسائٹی <span class="fr-req">*</span></span>
+                        <span class="fr-label-en">Area / society</span>
+                    </label>
+                    <input type="text" id="listArea" required placeholder="مثلاً واپڈا سٹی — e.g. Wapda City" list="listAreaList">
+                    <datalist id="listAreaList"></datalist>
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listCity">
+                        <span class="fr-label-ur">شہر</span>
+                        <span class="fr-label-en">City</span>
+                    </label>
+                    <input type="text" id="listCity" value="فیصل آباد" placeholder="فیصل آباد / Faisalabad">
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listPrice">
+                        <span class="fr-label-ur">متوقع قیمت (روپے) <span class="fr-req">*</span></span>
+                        <span class="fr-label-en">Expected price (PKR)</span>
+                    </label>
+                    <input type="number" id="listPrice" required min="0" placeholder="8500000">
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listSize">
+                        <span class="fr-label-ur">سائز (مرلہ / مربع فٹ)</span>
+                        <span class="fr-label-en">Size (marla / sq ft)</span>
+                    </label>
+                    <input type="text" id="listSize" placeholder="5 مرلہ / 5 marla">
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listBeds">
+                        <span class="fr-label-ur">بیڈروم</span>
+                        <span class="fr-label-en">Bedrooms</span>
+                    </label>
+                    <input type="number" id="listBeds" min="0" placeholder="3">
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listBaths">
+                        <span class="fr-label-ur">باتھ روم</span>
+                        <span class="fr-label-en">Bathrooms</span>
+                    </label>
+                    <input type="number" id="listBaths" min="0" placeholder="2">
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listFloors">
+                        <span class="fr-label-ur">منزلیں</span>
+                        <span class="fr-label-en">Floors</span>
+                    </label>
+                    <input type="number" id="listFloors" min="0" placeholder="2">
+                </div>
+                <div class="fr-form-row fr-form-row--wide">
+                    <label class="fr-label-bi" for="listTitle">
+                        <span class="fr-label-ur">عنوان (اختیاری)</span>
+                        <span class="fr-label-en">Title (optional)</span>
+                    </label>
+                    <input type="text" id="listTitle" placeholder="خالی چھوڑیں — auto title if blank">
+                </div>
+                <div class="fr-form-row fr-form-row--wide">
+                    <label class="fr-label-bi" for="listAddress">
+                        <span class="fr-label-ur">مکمل پتہ / لینڈ مارک</span>
+                        <span class="fr-label-en">Full address / landmark</span>
+                    </label>
+                    <input type="text" id="listAddress" placeholder="گلی، بلاک — street, block, nearby place">
+                </div>
+                <div class="fr-form-row fr-form-row--wide">
+                    <label class="fr-label-bi" for="listDescription">
+                        <span class="fr-label-ur">تفصیل <span class="fr-req">*</span></span>
+                        <span class="fr-label-en">Description</span>
+                    </label>
+                    <textarea id="listDescription" rows="4" required placeholder="پراپرٹی کی خصوصیات — features, availability, other details..."></textarea>
+                </div>
+                <div class="fr-form-row fr-form-row--wide">
+                    <label class="fr-label-bi" for="listImages">
+                        <span class="fr-label-ur">تصاویر (اختیاری، زیادہ سے زیادہ ۳)</span>
+                        <span class="fr-label-en">Photos (optional, max 3)</span>
+                    </label>
+                    <input type="file" id="listImages" accept="image/*" multiple>
+                    <div id="listImagePreview" class="fr-list-image-preview"></div>
+                </div>
+            </div>
+
+            <h3 class="fr-list-form-divider fr-section-heading-bi">
+                <span>آپ کی رابطہ معلومات</span>
+                <span class="fr-bi-sub--en">Your contact details</span>
+            </h3>
+            <div class="fr-list-form-grid">
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listOwnerName">
+                        <span class="fr-label-ur">آپ کا نام <span class="fr-req">*</span></span>
+                        <span class="fr-label-en">Your name</span>
+                    </label>
+                    <input type="text" id="listOwnerName" required placeholder="پورا نام / Full name">
+                </div>
+                <div class="fr-form-row">
+                    <label class="fr-label-bi" for="listOwnerPhone">
+                        <span class="fr-label-ur">موبائل نمبر <span class="fr-req">*</span></span>
+                        <span class="fr-label-en">Mobile number</span>
+                    </label>
+                    <input type="tel" id="listOwnerPhone" required placeholder="03xx-xxxxxxx">
+                </div>
+                <div class="fr-form-row fr-form-row--wide">
+                    <label class="fr-label-bi" for="listOwnerEmail">
+                        <span class="fr-label-ur">ای میل (اختیاری)</span>
+                        <span class="fr-label-en">Email (optional)</span>
+                    </label>
+                    <input type="email" id="listOwnerEmail" placeholder="example@email.com">
+                </div>
+            </div>
+
+            <p class="fr-list-note">جمع کرانے پر معلومات محفوظ cloud database میں محفوظ ہوں گی اور ٹیم WhatsApp پر مطلع ہو جائے گی۔<br><span class="fr-bi-sub--en">Saved securely in cloud database; team notified on WhatsApp.</span></p>
+            <button type="submit" class="fr-form-submit">درخواست جمع کرائیں / Submit request</button>
+        </form>
+
+        <div class="fr-list-success" id="listSuccess" hidden>
+            <h3>✓ درخواست موصول ہو گئی</h3>
+            <p class="fr-bi-sub--en" style="margin-bottom:0.5rem">Request received successfully</p>
+            <p>شکریہ! ہماری ٹیم جلد آپ سے رابطہ کرے گی۔ اگر WhatsApp کھلا ہے تو وہاں بھی تفصیلات بھیج دی گئی ہیں۔</p>
+            <p id="listSheetNote" style="margin-top:0.75rem;font-weight:600"></p>
+            <p class="fr-bi-sub--en">Thank you! Our team will contact you soon. Details were also sent on WhatsApp if it opened.</p>
+            <button type="button" class="fr-form-submit fr-list-success-btn" id="listAnother">ایک اور پراپرٹی درج کریں / List another property</button>
+        </div>
+        </div>
+    </div>
+
+    <div id="fr-footer-slot"></div>
+
+    <script src="js/pwa.js"></script>
+    <script src="js/site-config.js"></script>
+    <script src="js/sheets-config.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/data-sheet.js"></script>
+    <script src="js/zameen.js"></script>
+    <script src="js/fr-layout.js"></script>
+    <script type="module" src="js/cloud-auth.js"></script>
+    <script src="js/local-db.js"></script>
+    <script src="js/owner-auth.js"></script>
+    <script src="js/list-property.js"></script>
+</body>
+</html>

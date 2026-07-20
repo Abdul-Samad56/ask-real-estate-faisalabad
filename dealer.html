@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ڈیلر پینل — ASK REAL ESTATE FAISALABAD</title>
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/zameen.css">
+</head>
+<body class="zm-dealer">
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo" data-nav="dashboard">
+                <img src="assets/logo-header.png" alt="ASK REAL ESTATE FAISALABAD" class="logo-img logo-img--header">
+            </a>
+            <nav class="nav" id="mainNav">
+                <button class="nav-btn active" data-nav="dashboard">ڈیش بورڈ</button>
+                <button class="nav-btn" data-nav="properties">پراپرٹیز</button>
+                <button class="nav-btn" data-nav="clients">کلائنٹس</button>
+                <button class="nav-btn" data-nav="submissions">مالکان</button>
+                <button class="nav-btn" data-nav="matches">میچنگ</button>
+                <button class="nav-btn" data-nav="settings">ترتیبات</button>
+            </nav>
+            <div class="header-actions">
+                <a class='zm-btn-post' href='/' target='_blank'>ویب سائٹ ↗</a>
+                <button class="btn btn-primary btn-sm" id="btnQuickAdd">+ نئی لسٹنگ</button>
+                <div class="user-menu">
+                    <span id="userDisplayName" class="user-name"></span>
+                    <button type="button" class="btn btn-outline btn-sm" id="btnLogout">لاگ آؤٹ</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-search">
+        <div class="container">
+            <img src="assets/logo.png" alt="ASK REAL ESTATE FAISALABAD" class="logo-img logo-img--hero">
+            <p class="hero-sub">فیصل آباد — zameen جیسا تلاش اور لسٹنگ مینجمنٹ</p>
+            <div class="zm-search-wrap">
+                <div class="zm-search-tabs" id="dealerSearchTabs">
+                    <button type="button" class="zm-search-tab active" data-purpose="sale">خریدیں / فروخت</button>
+                    <button type="button" class="zm-search-tab" data-purpose="rent">کرایہ</button>
+                </div>
+                <form class="zm-search-form" id="globalSearchForm">
+                    <input type="hidden" id="searchPurpose" value="sale">
+                    <input type="text" id="searchCity" placeholder="علاقہ، سوسائٹی، شہر...">
+                    <select id="searchType">
+                        <option value="">قسم (سب)</option>
+                        <option value="house">مکان</option>
+                        <option value="flat">فلیٹ</option>
+                        <option value="plot">پلاٹ</option>
+                        <option value="shop">دکان</option>
+                        <option value="office">آفس</option>
+                    </select>
+                    <button type="submit" class="zm-search-btn">تلاش</button>
+                </form>
+            </div>
+            <input type="hidden" id="searchMinPrice">
+            <input type="hidden" id="searchMaxPrice">
+        </div>
+    </section>
+
+    <main class="container main-content">
+        <!-- Dashboard -->
+        <section id="view-dashboard" class="view active">
+            <div class="stats-grid" id="statsGrid"></div>
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h2>تازہ لسٹنگز</h2>
+                    <div id="recentProperties" class="mini-list"></div>
+                </div>
+                <div class="card">
+                    <h2>نئے کلائنٹس</h2>
+                    <div id="recentClients" class="mini-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Properties -->
+        <section id="view-properties" class="view">
+            <div class="view-header">
+                <h2>پراپرٹی لسٹنگز</h2>
+                <div class="view-actions">
+                    <select id="filterPropertyPurpose">
+                        <option value="">سب مقاصد</option>
+                        <option value="sale">فروخت</option>
+                        <option value="rent">کرایہ</option>
+                    </select>
+                    <select id="filterPropertyType">
+                        <option value="">سب اقسام</option>
+                        <option value="house">مکان</option>
+                        <option value="shop">دکان</option>
+                        <option value="office">آفس</option>
+                        <option value="plot">پلاٹ</option>
+                        <option value="flat">فلیٹ</option>
+                    </select>
+                    <button class="btn btn-primary" id="btnAddProperty">+ نئی پراپرٹی</button>
+                </div>
+            </div>
+            <div id="propertiesGrid" class="zm-grid"></div>
+            <p id="propertiesEmpty" class="empty-msg hidden">ابھی کوئی لسٹنگ نہیں۔ نئی پراپرٹی شامل کریں۔</p>
+        </section>
+
+        <!-- Owner submissions from public website -->
+        <section id="view-submissions" class="view">
+            <div class="view-header">
+                <div>
+                    <h2>مالکان کی درخواستیں</h2>
+                    <p class="view-subtitle">تمام اکاؤنٹس کی پراپرٹیز — ایک جگہ</p>
+                </div>
+                <div class="submissions-toolbar">
+                    <button type="button" class="btn btn-outline btn-sm" id="btnSyncCloudSubmissions" hidden>☁ Cloud سے sync</button>
+                </div>
+            </div>
+            <div id="submissionsStats" class="submissions-stats-bar"></div>
+            <p id="submissionsCloudHint" class="submissions-cloud-hint hidden"></p>
+            <div id="ownerSubmissionsList" class="submissions-list"></div>
+            <p id="submissionsEmpty" class="empty-msg hidden">ابھی کوئی درخواست نہیں۔ عوامی صفحہ: list-property.html</p>
+        </section>
+
+        <!-- Clients -->
+        <section id="view-clients" class="view">
+            <div class="view-header">
+                <h2>کلائنٹ ریکوارمنٹس</h2>
+                <button class="btn btn-primary" id="btnAddClient">+ نیا کلائنٹ</button>
+            </div>
+            <div id="clientsList" class="clients-list"></div>
+            <p id="clientsEmpty" class="empty-msg hidden">ابھی کوئی کلائنٹ نہیں۔</p>
+        </section>
+
+        <!-- Settings -->
+        <section id="view-settings" class="view">
+            <h2>ترتیبات اور بیک اپ</h2>
+            <div class="settings-grid">
+                <div class="card settings-card">
+                    <h3>ایجنسی / دفتر</h3>
+                    <form id="agencyForm" class="settings-form">
+                        <label>دفتر کا نام <input type="text" id="agencyName" placeholder="ASK REAL ESTATE FAISALABAD"></label>
+                        <label>رابطہ شخص <input type="text" id="agencyContactName" placeholder="حافظ عبدالصمد خٹک"></label>
+                        <label>فون / WhatsApp <input type="tel" id="agencyPhone" placeholder="0321-5315603"></label>
+                        <label>ای میل <input type="email" id="agencyEmail" placeholder="abdulsamadkhattak5@gmail.com"></label>
+                        <label>پتہ <input type="text" id="agencyAddress" placeholder="فیصل آباد، پاکستان"></label>
+                        <label>رابطہ نوٹ <input type="text" id="agencyContactNote" placeholder="مزید معلومات کے لیے رابطہ کیجئے"></label>
+                        <label class="ceo-photo-label">
+                            CEO تصویر (حافظ عبدالصمد)
+                            <input type="file" id="agencyCeoPhoto" accept="image/*">
+                        </label>
+                        <div id="agencyCeoPreview" class="ceo-photo-preview"></div>
+                        <button type="submit" class="btn btn-primary">محفوظ کریں</button>
+                    </form>
+                </div>
+                <div class="card settings-card">
+                    <h3>عوامی ویب سائٹ (zameen جیسا)</h3>
+                    <p class="settings-hint">جس پراپرٹی پر «ویب پر شائع» چیک ہو، وہ عوامی صفحے پر نظر آئے گی۔</p>
+                    <button type="button" class="btn btn-primary" id="btnSyncPublic">عوامی کیٹلاگ اپ ڈیٹ کریں</button>
+                    <a class='btn btn-outline' href='/' target='_blank'>ویب سائٹ کھولیں</a>
+                </div>
+                <div class="card settings-card" id="googleSheetsCard">
+                    <h3>Google Sheet ڈیٹابیس</h3>
+                    <p class="settings-hint">ویب فارم اور لسٹنگز کا ڈیٹا براہ راست Google Sheet میں۔ <a href='/google-sheets-setup' target='_blank'>مکمل ہدایت ↗</a></p>
+                    <form id="sheetsSettingsForm" class="settings-form">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="sheetsEnabled"> Google Sheets فعال (ڈیٹابیس)
+                        </label>
+                        <label>Web App URL <span class="settings-hint">(آخر میں <strong>/exec</strong> — <strong>/dev</strong> نہیں)</span>
+                            <input type="url" id="sheetsWebAppUrl" placeholder="https://script.google.com/macros/s/.../exec" dir="ltr"></label>
+                        <label>Secret (API_SECRET) <input type="text" id="sheetsSecret" placeholder="CHANGE_ME_ask_secret_2026" dir="ltr" autocomplete="off"></label>
+                        <div class="btn-stack">
+                            <button type="submit" class="btn btn-primary">محفوظ کریں</button>
+                            <button type="button" class="btn btn-outline" id="btnTestSheets">ٹیسٹ کنکشن</button>
+                            <button type="button" class="btn btn-outline" id="btnSetupSheets">شیٹ ٹیبز بنائیں</button>
+                            <button type="button" class="btn btn-primary" id="btnSyncGoogleSheets">سب ڈیٹا Sheet میں بھیجیں</button>
+                        </div>
+                    </form>
+                    <p id="sheetsStatus" class="settings-hint" style="margin-top:0.75rem"></p>
+                </div>
+                <div class="card settings-card">
+                    <h3>MS Excel ڈیٹابیس (data فولڈر)</h3>
+                    <p class="settings-hint">پہلے <strong>start-local-server.bat</strong> چلائیں۔ سافٹ وئر کا ڈیٹا خود <code>data\</code> میں Excel فائلوں (.csv) میں لکھا جائے گا — انہیں MS Excel میں کھولیں۔</p>
+                    <div class="btn-stack">
+                        <button type="button" class="btn btn-primary" id="btnSyncDataFolder">Excel فولڈر میں سب ڈیٹا لکھیں</button>
+                        <button type="button" class="btn btn-outline" id="btnDownloadAllCsv">۴ Excel/CSV ڈاؤن لوڈ</button>
+                        <button type="button" class="btn btn-outline" id="btnOpenDataFolder">data فولڈر کھولیں</button>
+                    </div>
+                </div>
+                <div class="card settings-card">
+                    <h3>بیک اپ / Excel</h3>
+                    <div class="btn-stack">
+                        <button type="button" class="btn btn-outline" id="btnExportJSON">JSON بیک اپ ڈاؤن لوڈ</button>
+                        <button type="button" class="btn btn-outline" id="btnExportPropsCSV">پراپرٹیز CSV (Excel)</button>
+                        <button type="button" class="btn btn-outline" id="btnExportClientsCSV">کلائنٹس CSV (Excel)</button>
+                        <label class="btn btn-outline file-label">
+                            JSON درآمد
+                            <input type="file" id="importJSON" accept=".json" hidden>
+                        </label>
+                    </div>
+                </div>
+                <div class="card settings-card" id="adminUsersCard">
+                    <h3>ڈیلر / صارفین (منتظم)</h3>
+                    <div id="usersList" class="users-list"></div>
+                    <form id="addUserForm" class="settings-form" style="margin-top:1rem">
+                        <label>نام <input type="text" id="newUserName" required></label>
+                        <label>لاگ ان نام <input type="text" id="newUserUsername" required></label>
+                        <label>پاس ورڈ <input type="password" id="newUserPassword" required></label>
+                        <label>فون <input type="tel" id="newUserPhone"></label>
+                        <button type="submit" class="btn btn-primary">نیا ڈیلر شامل</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Matches -->
+        <section id="view-matches" class="view">
+            <div class="view-header">
+                <h2>میچنگ — کلائنٹ ↔ پراپرٹی</h2>
+                <select id="matchClientSelect">
+                    <option value="">کلائنٹ منتخب کریں</option>
+                </select>
+            </div>
+            <div id="matchesResults"></div>
+            <p id="matchesEmpty" class="empty-msg">کلائنٹ منتخب کریں تاکہ مناسب پراپرٹیز دکھائی جائیں۔</p>
+        </section>
+    </main>
+
+    <!-- Property Modal -->
+    <dialog id="propertyModal" class="modal">
+        <form id="propertyForm" class="modal-form">
+            <div class="modal-header">
+                <h3 id="propertyModalTitle">نئی پراپرٹی</h3>
+                <button type="button" class="modal-close" data-close="propertyModal">&times;</button>
+            </div>
+            <input type="hidden" id="propertyId">
+            <div class="form-grid">
+                <label>
+                    عنوان *
+                    <input type="text" id="propTitle" required placeholder="مثلاً 5 مرلہ مکان DHA">
+                </label>
+                <label>
+                    مقصد *
+                    <select id="propPurpose" required>
+                        <option value="sale">فروخت</option>
+                        <option value="rent">کرایہ</option>
+                    </select>
+                </label>
+                <label>
+                    قسم *
+                    <select id="propType" required>
+                        <option value="house">مکان</option>
+                        <option value="shop">دکان</option>
+                        <option value="office">آفس</option>
+                        <option value="plot">پلاٹ</option>
+                        <option value="flat">فلیٹ</option>
+                    </select>
+                </label>
+                <label>
+                    قیمت (روپے) *
+                    <input type="number" id="propPrice" required min="0">
+                </label>
+                <label>
+                    شہر *
+                    <input type="text" id="propCity" required placeholder="لاہور">
+                </label>
+                <label>
+                    علاقہ / سوسائٹی
+                    <input type="text" id="propArea" placeholder="گلبرگ، DHA">
+                </label>
+                <label>
+                    مرلہ / مربع فٹ
+                    <input type="text" id="propSize" placeholder="5 مرلہ">
+                </label>
+                <label>
+                    بیڈروم
+                    <input type="number" id="propBeds" min="0" placeholder="3">
+                </label>
+                <label>
+                    باتھ روم
+                    <input type="number" id="propBaths" min="0">
+                </label>
+                <label>
+                    مالک / رابطہ
+                    <input type="text" id="propOwner" placeholder="نام اور فون">
+                </label>
+                <label>
+                    فون نمبر
+                    <input type="tel" id="propPhone" placeholder="03xx-xxxxxxx">
+                </label>
+                <label class="full-width">
+                    تفصیل
+                    <textarea id="propDescription" rows="3" placeholder="پراپرٹی کی مکمل تفصیل"></textarea>
+                </label>
+                <label class="full-width">
+                    تصاویر (زیادہ سے زیادہ ۳)
+                    <input type="file" id="propImages" accept="image/*" multiple>
+                    <div id="propImagePreview" class="image-preview-grid"></div>
+                </label>
+                <label class="full-width">
+                    <input type="checkbox" id="propFeatured"> نمایاں لسٹنگ
+                </label>
+                <label class="full-width">
+                    <input type="checkbox" id="propPublished"> ویب پر شائع (عوامی سائٹ)
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" data-close="propertyModal">منسوخ</button>
+                <button type="submit" class="btn btn-primary">محفوظ کریں</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Client Modal -->
+    <dialog id="clientModal" class="modal">
+        <form id="clientForm" class="modal-form">
+            <div class="modal-header">
+                <h3 id="clientModalTitle">نیا کلائنٹ</h3>
+                <button type="button" class="modal-close" data-close="clientModal">&times;</button>
+            </div>
+            <input type="hidden" id="clientId">
+            <div class="form-grid">
+                <label>
+                    کلائنٹ کا نام *
+                    <input type="text" id="clientName" required>
+                </label>
+                <label>
+                    فون *
+                    <input type="tel" id="clientPhone" required placeholder="03xx-xxxxxxx">
+                </label>
+                <label>
+                    وہ کیا چاہتا ہے *
+                    <select id="clientPurpose" required>
+                        <option value="buy">خریدنا</option>
+                        <option value="rent">کرایہ پر لینا</option>
+                        <option value="sell">بیچنا</option>
+                        <option value="lease_out">کرایہ پر دینا</option>
+                    </select>
+                </label>
+                <label>
+                    پراپرٹی قسم *
+                    <select id="clientType" required>
+                        <option value="house">مکان</option>
+                        <option value="shop">دکان</option>
+                        <option value="office">آفس</option>
+                        <option value="plot">پلاٹ</option>
+                        <option value="flat">فلیٹ</option>
+                    </select>
+                </label>
+                <label>
+                    بجٹ از (روپے)
+                    <input type="number" id="clientBudgetMin" min="0">
+                </label>
+                <label>
+                    بجٹ تک (روپے)
+                    <input type="number" id="clientBudgetMax" min="0">
+                </label>
+                <label>
+                    پسندیدہ شہر
+                    <input type="text" id="clientCity" placeholder="لاہور">
+                </label>
+                <label>
+                    پسندیدہ علاقے
+                    <input type="text" id="clientAreas" placeholder="DHA, Bahria">
+                </label>
+                <label>
+                    کم از کم سائز
+                    <input type="text" id="clientMinSize" placeholder="5 مرلہ">
+                </label>
+                <label>
+                    بیڈروم (کم از کم)
+                    <input type="number" id="clientMinBeds" min="0">
+                </label>
+                <label class="full-width">
+                    نوٹس / اضافی شرائط
+                    <textarea id="clientNotes" rows="3"></textarea>
+                </label>
+                <label>
+                    حیثیت
+                    <select id="clientStatus">
+                        <option value="active">فعال</option>
+                        <option value="matched">میچ ہو گیا</option>
+                        <option value="closed">بند</option>
+                    </select>
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" data-close="clientModal">منسوخ</button>
+                <button type="submit" class="btn btn-primary">محفوظ کریں</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Detail Modal -->
+    <dialog id="detailModal" class="modal modal-lg">
+        <div class="modal-header">
+            <h3 id="detailTitle"></h3>
+            <button type="button" class="modal-close" data-close="detailModal">&times;</button>
+        </div>
+        <div id="detailBody" class="detail-body"></div>
+    </dialog>
+
+    <!-- Login -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="assets/logo.png" alt="ASK REAL ESTATE FAISALABAD" class="logo-img logo-img--login">
+            </div>
+            <p class="login-sub">فیصل آباد — محفوظ ایڈمن لاگ ان</p>
+            <form id="loginForm">
+                <label>ایڈمن ای میل <input type="text" id="loginUsername" required autocomplete="username" value="abdulsamadkhattak5@gmail.com"></label>
+                <label>پاس ورڈ
+                    <span class="password-field">
+                        <input type="password" id="loginPassword" required autocomplete="current-password" placeholder="••••">
+                        <button type="button" class="password-toggle" id="toggleLoginPassword" aria-label="پاس ورڈ دکھائیں" aria-pressed="false">👁</button>
+                    </span>
+                </label>
+                <p id="loginError" class="login-error hidden"></p>
+                <button type="submit" class="btn btn-primary btn-block">داخل ہوں</button>
+            </form>
+            <p class="login-hint">صرف admin account سے dashboard کھلے گا — پاس ورڈ کسی کے ساتھ شیئر نہ کریں</p>
+            <div class="fr-dealer-oauth" id="dealerOAuthBlock" hidden>
+                <p>یا Google / Facebook سے admin لاگ ان (cloud database)</p>
+                <div class="fr-auth-buttons">
+                    <button type="button" class="fr-auth-btn fr-auth-google" id="dealerBtnGoogle">Google</button>
+                    <button type="button" class="fr-auth-btn fr-auth-facebook" id="dealerBtnFacebook">Facebook</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>ASK REAL ESTATE FAISALABAD | ڈیٹا آپ کے براؤزر میں محفوظ ہے</p>
+        </div>
+    </footer>
+
+    <script src="js/pwa.js"></script>
+    <script src="js/site-config.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/sheets-config.js"></script>
+    <script src="js/security.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/data-sheet.js"></script>
+    <script type="module" src="js/cloud-auth.js"></script>
+    <script src="js/local-db.js"></script>
+    <script src="js/owner-auth.js"></script>
+    <script src="js/app.js"></script>
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', async () => {
+            await CloudAuth.waitReady();
+            if (!CloudAuth.isConfigured()) return;
+            const block = document.getElementById('dealerOAuthBlock');
+            block.hidden = false;
+            document.getElementById('dealerBtnGoogle')?.addEventListener('click', () =>
+                CloudAuth.signInWithProvider('google', 'dealer.html')
+            );
+            document.getElementById('dealerBtnFacebook')?.addEventListener('click', () =>
+                CloudAuth.signInWithProvider('facebook', 'dealer.html')
+            );
+        });
+    </script>
+</body>
+</html>

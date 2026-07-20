@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لاگ ان ہو رہا ہے… — ASK REAL ESTATE</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/realtors.css">
+</head>
+<body class="fr-auth-page">
+    <div class="fr-auth-wrap">
+        <div class="fr-auth-card fr-auth-card--loading">
+            <div class="fr-auth-spinner"></div>
+            <p>لاگ ان مکمل ہو رہا ہے…</p>
+            <p id="authCallbackError" class="fr-auth-error hidden"></p>
+            <a href="login.html" id="authRetry" class="fr-auth-back hidden">دوبارہ کوشش کریں</a>
+        </div>
+    </div>
+
+    <script src="js/site-config.js"></script>
+    <script src="js/supabase-config.js"></script>
+    <script type="module" src="js/cloud-auth.js"></script>
+    <script type="module">
+        const params = new URLSearchParams(location.search);
+        const redirect = params.get('redirect') || 'list-property.html';
+
+        (async () => {
+            await CloudAuth.waitReady();
+            const result = await CloudAuth.handleAuthCallback();
+            if (result.ok) {
+                location.replace(redirect);
+                return;
+            }
+            document.querySelector('.fr-auth-spinner')?.remove();
+            const err = document.getElementById('authCallbackError');
+            err.textContent = result.error === 'not_configured'
+                ? 'Supabase کنفیگر نہیں — site-config.js چیک کریں'
+                : result.error || 'لاگ ان ناکام';
+            err.classList.remove('hidden');
+            document.getElementById('authRetry').classList.remove('hidden');
+        })();
+    </script>
+</body>
+</html>

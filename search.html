@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فیصل آباد پراپرٹیز — ASK REAL ESTATE</title>
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/realtors.css">
+    <link rel="stylesheet" href="css/zameen.css">
+</head>
+<body class="fr-site zm-site zm-search-page" data-page="search.html">
+    <div id="fr-layout"></div>
+
+    <!-- zameen.com style mega search -->
+    <section class="zm-mega-search">
+        <div class="container-wide">
+            <div class="zm-search-wrap">
+                <div class="zm-search-tabs" id="megaTabs">
+                    <button type="button" class="zm-search-tab" data-purpose="sale">فروخت</button>
+                    <button type="button" class="zm-search-tab active" data-purpose="rent">کرایہ</button>
+                </div>
+                <form class="zm-mega-form" id="megaSearchForm">
+                    <div class="zm-mega-row">
+                        <div class="zm-mega-field">
+                            <label>مقصد</label>
+                            <select id="filterPurpose">
+                                <option value="rent">کرایہ پر</option>
+                                <option value="sale">فروخت</option>
+                                <option value="">سب</option>
+                            </select>
+                        </div>
+                        <div class="zm-mega-field">
+                            <label>شہر</label>
+                            <input type="text" value="فیصل آباد" readonly class="zm-readonly">
+                        </div>
+                        <div class="zm-mega-field zm-mega-grow">
+                            <label>مقام</label>
+                            <input type="text" id="pubCity" placeholder="علاقہ، سوسائٹی..." list="areaList">
+                            <datalist id="areaList"></datalist>
+                        </div>
+                        <div class="zm-mega-field">
+                            <label>قسم</label>
+                            <select id="pubType">
+                                <option value="">گھر</option>
+                                <option value="house">مکان</option>
+                                <option value="flat">فلیٹ</option>
+                                <option value="plot">پلاٹ</option>
+                                <option value="shop">دکان</option>
+                                <option value="office">آفس</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="zm-mega-row">
+                        <div class="zm-mega-field">
+                            <label>قیمت از (PKR)</label>
+                            <input type="number" id="filterMin" placeholder="0">
+                        </div>
+                        <div class="zm-mega-field">
+                            <label>قیمت تک</label>
+                            <input type="number" id="filterMax" placeholder="کوئی بھی">
+                        </div>
+                        <div class="zm-mega-field">
+                            <label>بیڈ</label>
+                            <select id="filterBeds">
+                                <option value="">تمام</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                                <option value="4">4+</option>
+                                <option value="5">5+</option>
+                            </select>
+                        </div>
+                        <div class="zm-mega-field">
+                            <label>باتھ</label>
+                            <select id="filterBaths">
+                                <option value="">تمام</option>
+                                <option value="1">1+</option>
+                                <option value="2">2+</option>
+                                <option value="3">3+</option>
+                            </select>
+                        </div>
+                        <div class="zm-mega-field zm-mega-grow">
+                            <label>مطلوبہ الفاظ</label>
+                            <input type="text" id="filterKeywords" placeholder="تلاش...">
+                        </div>
+                        <button type="submit" class="zm-search-btn zm-mega-submit">تلاش</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div class="zm-breadcrumb-bar">
+        <div class="container-wide">
+            <nav class="zm-breadcrumb">
+                <a href='/'>ASK</a><span>&gt;</span>
+                <a href='/search'>فیصل آباد پراپرٹی</a><span>&gt;</span>
+                <span id="breadcrumbCurrent">لسٹنگز</span>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container-wide zm-page-intro">
+        <h1 class="zm-h1-count" id="pageTitle">فیصل آباد میں پراپرٹیز</h1>
+        <div class="zm-sort-bar zm-sort-bar--zameen" id="sortToolbar">
+            <span class="zm-result-count" id="resultCount">0 Homes</span>
+            <div class="zm-toolbar-right">
+                <div class="zm-sort-dropdown" id="sortDropdown">
+                    <button type="button" class="zm-sort-trigger" id="sortTrigger" aria-haspopup="listbox" aria-expanded="false">
+                        <svg class="zm-sort-trigger-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 18h6v-2H3v2zm0-5h6v-2H3v2zm0-7v2h6V6H3zm10 0v2h8V6h-8zm0 5v2h8v-2h-8zm0 5v2h8v-2h-8z"/></svg>
+                        <span class="zm-sort-trigger-label" id="sortLabel">Popular</span>
+                        <svg class="zm-sort-chevron" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5H7z"/></svg>
+                    </button>
+                    <ul class="zm-sort-menu" id="sortMenu" role="listbox" hidden>
+                        <li role="option" data-value="featured" class="zm-sort-option active" tabindex="0">Popular</li>
+                        <li role="option" data-value="newest" class="zm-sort-option" tabindex="0">Newest</li>
+                        <li role="option" data-value="price-asc" class="zm-sort-option" tabindex="0">Lowest Price</li>
+                        <li role="option" data-value="price-desc" class="zm-sort-option" tabindex="0">Highest Price</li>
+                    </ul>
+                    <input type="hidden" id="sortSelect" value="featured">
+                </div>
+                <div class="zm-view-toggle" role="group" aria-label="View layout">
+                    <button type="button" class="zm-view-btn active" data-view="list" title="List view" aria-pressed="true" aria-label="List view">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"/></svg>
+                    </button>
+                    <button type="button" class="zm-view-btn" data-view="grid" title="Grid view" aria-pressed="false" aria-label="Grid view">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-wide zm-cat-bar" id="categoryBar"></div>
+
+    <div class="zm-types zm-types-flat">
+        <div class="container-wide">
+            <div class="zm-types-inner" id="typeChips"></div>
+        </div>
+    </div>
+
+    <main class="zm-main zm-main-zameen container-wide" id="listings">
+        <aside class="zm-loc-sidebar">
+            <h3 class="zm-loc-title">فیصل آباد — مقامات</h3>
+            <p class="zm-loc-sub">حروف تہجی سے ترتیب</p>
+            <div class="zm-loc-list" id="areaSidebar"></div>
+        </aside>
+
+        <div class="zm-content">
+            <div id="publicGrid" class="zm-listings-grid"></div>
+            <div id="publicEmpty" class="zm-empty hidden">
+                <h3>کوئی پراپرٹی نہیں ملی</h3>
+                <p>فلٹر بدلیں یا <a href="tel:" data-agency-phone>رابطہ</a> کریں۔</p>
+            </div>
+            <div id="pagination" class="zm-pagination-wrap"></div>
+        </div>
+    </main>
+
+    <div id="fr-footer-slot"></div>
+
+    <script src="js/pwa.js"></script>
+    <script src="js/site-config.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/local-db.js"></script>
+    <script src="js/zameen.js"></script>
+    <script src="js/demo-listings.js"></script>
+    <script src="js/fr-layout.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

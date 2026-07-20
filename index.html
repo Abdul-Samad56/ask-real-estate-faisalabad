@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASK REAL ESTATE FAISALABAD — فیصل آباد پراپرٹی پورٹل</title>
+    <meta name="description" content="فیصل آباد میں مکان، دکان، آفس، پلاٹ — خرید، فروخت، کرایہ | ASK REAL ESTATE">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" id="css-style">
+    <link rel="stylesheet" href="css/realtors.css">
+    <link rel="stylesheet" href="css/zameen.css">
+    <script>
+    (function () {
+        function showDeployHelp() {
+            if (document.getElementById('ask-deploy-help')) return;
+            var d = document.createElement('div');
+            d.id = 'ask-deploy-help';
+            d.setAttribute('dir', 'rtl');
+            d.style.cssText =
+                'position:fixed;inset:0;z-index:99999;background:#1a237e;color:#fff;padding:20px;overflow:auto;font-family:system-ui,sans-serif;line-height:1.6';
+            d.innerHTML =
+                '<h2 style="margin:0 0 12px">ڈیزائن لوڈ نہیں ہوا</h2>' +
+                '<p>Netlify پر <strong>css</strong> اور <strong>js</strong> فولڈرز نہیں پہنچے — صرف HTML اپلوڈ ہوا۔</p>' +
+                '<ol><li><a href="https://app.netlify.com" style="color:#ffeb3b">app.netlify.com</a> → اپنی site → <strong>Deploys</strong></li>' +
+                '<li>Desktop سے <strong>ASK-website-netlify-upload.zip</strong> drag کریں<br>یا <strong>netlify-publish</strong> فولڈر کھولیں → اندر <strong>Ctrl+A</strong> → سب فائلیں Deploys پر drag</li>' +
+                '<li>پھر <a href="deploy-check.html" style="color:#ffeb3b">deploy-check.html</a> کھولیں — سب ✓ ہوں</li></ol>' +
+                '<p><button type="button" style="padding:10px 16px;cursor:pointer">بند کریں</button></p>';
+            d.querySelector('button').onclick = function () { d.remove(); };
+            document.body.appendChild(d);
+        }
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                var ok = false;
+                try {
+                    var el = document.getElementById('css-style');
+                    if (el && el.sheet && el.sheet.cssRules && el.sheet.cssRules.length > 0) ok = true;
+                } catch (e) {}
+                if (!ok) showDeployHelp();
+            }, 800);
+        });
+    })();
+    </script>
+</head>
+<body class="fr-site" data-page="index.html">
+    <div id="fr-layout"></div>
+
+    <section class="fr-hero">
+        <div class="fr-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&auto=format&fit=crop&q=85')" aria-hidden="true">
+            <div class="fr-hero-bg-overlay"></div>
+        </div>
+        <div class="fr-hero-inner">
+        <h1>فیصل آباد میں پراپرٹی تلاش کریں</h1>
+        <p class="fr-hero-sub">مکان · دکان · آفس · پلاٹ — خرید، فروخت، کرایہ</p>
+        <div class="fr-search-box">
+            <div class="fr-search-tabs">
+                <button type="button" class="fr-search-tab" data-purpose="rent">کرایہ</button>
+                <button type="button" class="fr-search-tab active" data-purpose="sale">فروخت</button>
+            </div>
+            <form id="homeSearchForm">
+                <div class="fr-search-main" id="homeSearchMain">
+                    <input type="text" id="homeCity" placeholder="علاقہ، سوسائٹی..." list="areaList">
+                    <datalist id="areaList"></datalist>
+                    <select id="homeCategory">
+                        <option value="">قسم — سب</option>
+                        <optgroup label="مکان">
+                            <option value="house">مکان</option>
+                            <option value="room">کمرہ</option>
+                            <option value="flat">فلیٹ</option>
+                            <option value="penthouse">Penthouse</option>
+                            <option value="farmhouse">فارم ہاؤس</option>
+                        </optgroup>
+                        <optgroup label="کمرشل">
+                            <option value="office">آفس</option>
+                            <option value="shop">دکان</option>
+                            <option value="hall">ہال</option>
+                            <option value="building">عمارت</option>
+                            <option value="factory">فیکٹری</option>
+                            <option value="warehouse">گودام</option>
+                            <option value="other">دیگر</option>
+                        </optgroup>
+                        <optgroup label="پلاٹ">
+                            <option value="residential_plot">رہائشی پلاٹ</option>
+                            <option value="commercial_plot">کمرشل پلاٹ</option>
+                            <option value="agricultural">زرعی زمین</option>
+                            <option value="industrial">صنعتی زمین</option>
+                            <option value="plot">پلاٹ</option>
+                            <option value="lower_portion">لوئر پورشن</option>
+                        </optgroup>
+                    </select>
+                    <button type="submit" class="fr-search-submit">تلاش</button>
+                </div>
+                <button type="button" class="fr-advanced-toggle" id="advancedToggle">+ تفصیلی تلاش (Advanced)</button>
+                <div class="fr-advanced-panel" id="advancedPanel">
+                    <div>
+                        <label>قیمت از (روپے)</label>
+                        <input type="number" id="homeMin" placeholder="0">
+                    </div>
+                    <div>
+                        <label>قیمت تک</label>
+                        <input type="number" id="homeMax" placeholder="">
+                    </div>
+                    <div>
+                        <label>بیڈروم</label>
+                        <select id="homeBeds">
+                            <option value="">تمام</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>باتھ روم</label>
+                        <select id="homeBaths">
+                            <option value="">تمام</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>منزلیں</label>
+                        <select id="homeFloors">
+                            <option value="">تمام</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                            <option value="5">5+</option>
+                        </select>
+                    </div>
+                    <div class="fr-advanced-ok">
+                        <button type="button" id="advancedOk" class="fr-advanced-ok-btn">OK</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </section>
+
+    <section class="fr-trust-bar">
+        <div class="fr-trust-bg" style="background-image:url('https://images.unsplash.com/photo-1560185007-cde436f6a92d?w=1600&auto=format&fit=crop&q=85')" aria-hidden="true"></div>
+        <div class="fr-trust-overlay" aria-hidden="true"></div>
+        <div class="fr-trust-inner">
+            <div class="fr-trust-item"><strong>500+</strong><span>پراپرٹیز</span></div>
+            <div class="fr-trust-item"><strong>10+</strong><span>سال تجربہ</span></div>
+            <div class="fr-trust-item"><strong>100%</strong><span>قابل اعتماد</span></div>
+            <div class="fr-trust-item"><strong>24/7</strong><span>رابطہ سپورٹ</span></div>
+        </div>
+    </section>
+
+    <section class="fr-services">
+        <h2 class="fr-section-title">ہماری خدمات</h2>
+        <p class="fr-section-sub">فیصل آباد میں بہترین پراپرٹی مواقع</p>
+        <div class="fr-services-grid" id="homeServices"></div>
+    </section>
+
+    <section class="fr-section fr-section-alt">
+        <div class="fr-section-head">
+            <div>
+                <h2>کرایہ کی پراپرٹیز</h2>
+                <p>فیصل آباد میں کرایہ پر دستیاب پراپرٹیز کی تفصیلی فہرست</p>
+            </div>
+            <a class='fr-view-all' href='search.html?purpose=rent'>سب دیکھیں ←</a>
+        </div>
+        <div class="fr-props-grid" id="rentProperties"></div>
+    </section>
+
+    <section class="fr-ceo">
+        <div class="fr-ceo-inner">
+            <div class="fr-ceo-photo"><img src="assets/ceo.jpg" alt="حافظ عبدالصمد خٹک" loading="lazy"></div>
+            <div>
+                <p class="fr-ceo-label">CEO & Founder</p>
+                <h2 class="fr-ceo-name" data-agency-contact>حافظ عبدالصمد خٹک</h2>
+                <p class="fr-ceo-brand">ASK REAL ESTATE FAISALABAD</p>
+                <p class="fr-ceo-quote">«فیصل آباد میں پراپرٹی خرید، فروخت اور کرایہ — قابل اعتماد مشیر اور مکمل سروس۔ مزید معلومات کے لیے رابطہ کیجئے۔»</p>
+                <div class="fr-ceo-contact">
+                    <a href="#" data-agency-wa>WhatsApp</a>
+                    <a href="tel:" data-agency-phone>کال کریں</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fr-section">
+        <div class="fr-section-head">
+            <div>
+                <h2>فروخت کی پراپرٹیز</h2>
+                <p>فیصل آباد میں فروخت کے لیے دستیاب پراپرٹیز</p>
+            </div>
+            <a class='fr-view-all' href='search.html?purpose=sale'>سب دیکھیں ←</a>
+        </div>
+        <div class="fr-props-grid" id="saleProperties"></div>
+    </section>
+
+    <section class="fr-contact" id="contact">
+        <div class="fr-contact-grid">
+            <div class="fr-contact-info">
+                <h3>ہم سے رابطہ کریں</h3>
+                <p><strong>پتہ:</strong> <span data-agency-address>فیصل آباد</span></p>
+                <p><strong>ای میل:</strong> <a href="mailto:" data-agency-email></a></p>
+                <p><strong>فون:</strong> <a href="tel:" data-agency-phone></a></p>
+                <p><strong>WhatsApp:</strong> <a href="#" data-agency-wa>پیغام بھیجیں</a></p>
+                <p style="margin-top:1rem" data-agency-note>مزید معلومات کے لیے رابطہ کیجئے</p>
+                <p><strong data-agency-contact>حافظ عبدالصمد خٹک</strong></p>
+            </div>
+            <form class="fr-inquiry-form" id="inquiryForm">
+                <h3>استفسار فارم</h3>
+                <div class="fr-form-row">
+                    <label>استفسار کی قسم *</label>
+                    <select id="inquiryType" required>
+                        <option value="">— منتخب —</option>
+                        <option value="buy">خریداری (Purchase)</option>
+                        <option value="rent">کرایہ (Rent)</option>
+                        <option value="sale">فروخت (Sale)</option>
+                    </select>
+                </div>
+                <div class="fr-form-row">
+                    <label>آپ کون ہیں *</label>
+                    <select id="inquiryRole" required>
+                        <option value="">— منتخب —</option>
+                        <option value="buyer">خریدار / کرایہ دار</option>
+                        <option value="owner">مالک (Property Owner)</option>
+                        <option value="agent">ایجنٹ (Real Estate Agent)</option>
+                    </select>
+                </div>
+                <div class="fr-form-row">
+                    <label>پراپرٹی قسم *</label>
+                    <select id="inquiryTypeProp" required>
+                        <option value="">— منتخب —</option>
+                        <option value="office">آفس</option>
+                        <option value="shop">دکان</option>
+                        <option value="warehouse">گودام</option>
+                        <option value="factory">فیکٹری</option>
+                        <option value="farmhouse">فارم ہاؤس</option>
+                        <option value="plot">پلاٹ</option>
+                        <option value="agricultural">زرعی زمین</option>
+                        <option value="industrial">صنعتی زمین</option>
+                        <option value="commercial_plot">کمرشل پلاٹ</option>
+                        <option value="residential_plot">رہائشی پلاٹ</option>
+                        <option value="penthouse">Penthouse</option>
+                        <option value="house">مکان</option>
+                        <option value="flat">فلیٹ</option>
+                        <option value="building">عمارت</option>
+                        <option value="other">دیگر</option>
+                    </select>
+                </div>
+                <div class="fr-form-row">
+                    <label>آپ کا نام *</label>
+                    <input type="text" id="inquiryName" required placeholder="نام">
+                </div>
+                <div class="fr-form-row">
+                    <label>فون *</label>
+                    <input type="tel" id="inquiryPhone" required placeholder="03xx-xxxxxxx">
+                </div>
+                <div class="fr-form-row">
+                    <label>پیغام</label>
+                    <textarea id="inquiryMsg" rows="3" placeholder="اپنی ضرورت بتائیں..."></textarea>
+                </div>
+                <button type="submit" class="fr-form-submit">جمع کرائیں — WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="fr-section">
+        <div class="fr-section-head">
+            <div>
+                <h2>ہماری ٹیم</h2>
+                <p>پیشہ ور اور قابل اعتماد مشیر</p>
+            </div>
+            <a class='fr-view-all' href='team.html'>مکمل ٹیم ←</a>
+        </div>
+        <div class="fr-team-grid" id="homeTeam"></div>
+    </section>
+
+    <section class="fr-section fr-section-alt">
+        <div class="fr-section-head">
+            <div>
+                <h2>بلاگ</h2>
+                <p>رئیل اسٹیٹ، لائف سٹائل اور تعمیرات</p>
+            </div>
+            <a class='fr-view-all' href='blog.html'>تمام مضامین ←</a>
+        </div>
+        <div class="fr-blog-grid" id="homeBlog"></div>
+    </section>
+
+    <section class="fr-section">
+        <div class="fr-section-head">
+            <div>
+                <h2>ہمارے پارٹنرز</h2>
+                <p>معتبر تعمیراتی اور قانونی شراکت دار</p>
+            </div>
+        </div>
+        <div class="fr-partners-grid" id="homePartners"></div>
+    </section>
+
+    <div id="fr-footer-slot"></div>
+
+    <script src="js/site-config.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/sheets-config.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/local-db.js"></script>
+    <script src="js/zameen.js"></script>
+    <script src="js/demo-listings.js"></script>
+    <script src="js/data-sheet.js"></script>
+    <script src="js/site-url.js"></script>
+    <script src="js/fr-layout.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

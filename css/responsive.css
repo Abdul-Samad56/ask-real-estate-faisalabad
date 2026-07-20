@@ -1,0 +1,426 @@
+/**
+ * Responsive — mobile, tablet, desktop
+ */
+
+html {
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+}
+
+img,
+svg,
+video,
+iframe {
+    max-width: 100%;
+}
+
+/* ——— Tablet ——— */
+@media (max-width: 992px) {
+    .fr-nav > a,
+    .fr-nav-item > button {
+        padding: 0.45rem 0.65rem;
+        font-size: 1rem;
+    }
+
+    .fr-logo img,
+    .logo-img--header {
+        height: 70px;
+        max-width: 280px;
+    }
+
+    .fr-section {
+        padding: 3rem 0;
+    }
+
+    .fr-props-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+/* ——— Mobile ——— */
+@media (max-width: 768px) {
+    .fr-header {
+        position: sticky;
+        top: 0;
+        z-index: 300;
+    }
+
+    .fr-header-inner {
+        position: relative;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        padding: 0.4rem 0.85rem;
+    }
+
+    .fr-logo {
+        flex: 1;
+        min-width: 0;
+        padding: 0.1rem 0.25rem;
+    }
+
+    .fr-logo img,
+    .logo-img--header {
+        height: 54px;
+        max-width: min(220px, 48vw);
+    }
+
+    .fr-header-actions {
+        flex-shrink: 0;
+    }
+
+    .fr-header-actions .fr-btn-list {
+        display: inline-flex;
+        font-size: 0.78rem;
+        padding: 0.4rem 0.65rem;
+        white-space: nowrap;
+    }
+
+    .fr-mobile-toggle {
+        flex-shrink: 0;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .fr-nav {
+        display: none;
+    }
+
+    .fr-mobile-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fr-nav.mobile-open {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: #fff;
+        padding: 0.75rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        border-top: 1px solid var(--fr-border, #e5e7eb);
+        max-height: min(70vh, 480px);
+        overflow-y: auto;
+        z-index: 400;
+    }
+
+    .fr-nav.mobile-open > a,
+    .fr-nav.mobile-open .fr-nav-item > button {
+        width: 100%;
+        text-align: right;
+        padding: 0.75rem 1rem;
+        font-size: 1.05rem;
+        border-radius: 8px;
+    }
+
+    .fr-nav.mobile-open .fr-dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0.5rem;
+        min-width: 0;
+        max-height: none;
+    }
+
+    .fr-nav.mobile-open .fr-dropdown.open .fr-dropdown-menu {
+        display: block;
+    }
+
+    .fr-topbar-inner {
+        justify-content: center;
+        padding: 0.35rem 0.75rem;
+    }
+
+    .fr-topbar-links {
+        justify-content: center;
+        gap: 0.4rem;
+        font-size: 0.78rem;
+    }
+
+    .fr-topbar-links a[data-agency-email] {
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    .fr-ad-strip-inner {
+        padding: 0 0.75rem;
+    }
+
+    .fr-ad-marquee-item {
+        padding: 0 1.5rem;
+        gap: 0.85rem;
+    }
+
+    .fr-ad-text {
+        font-size: 1rem;
+        white-space: normal;
+        max-width: 280px;
+    }
+
+    .fr-ad-contact-card {
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        padding: 0.4rem 0.65rem;
+    }
+
+    .fr-ad-name {
+        font-size: 0.88rem;
+    }
+
+    .fr-ad-phone {
+        font-size: 0.95rem;
+    }
+
+    .fr-hero {
+        min-height: auto;
+        padding: 2rem 0.85rem 2.5rem;
+    }
+
+    .fr-hero h1 {
+        font-size: 1.55rem;
+        line-height: 1.5;
+    }
+
+    .fr-hero-sub {
+        font-size: 0.95rem;
+    }
+
+    .fr-search-box {
+        margin-top: 1rem;
+        border-radius: 10px;
+    }
+
+    .fr-search-main {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fr-search-main input,
+    .fr-search-main select {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .fr-search-submit {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .fr-search-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .fr-trust-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.85rem;
+    }
+
+    .fr-section-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .fr-props-grid,
+    .fr-services-grid,
+    .fr-team-grid,
+    .fr-blog-grid,
+    .fr-partners-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0.85rem;
+    }
+
+    .fr-ceo-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0 0.85rem;
+    }
+
+    .fr-ceo-photo {
+        margin: 0 auto;
+    }
+
+    .fr-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 0.85rem;
+    }
+
+    .fr-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        padding: 0 0.85rem 1.5rem;
+    }
+
+    .fr-float-call {
+        bottom: 1rem;
+        left: 1rem;
+        right: auto;
+    }
+
+    /* Search page */
+    .zm-mega-row {
+        grid-template-columns: 1fr;
+    }
+
+    .zm-mega-field {
+        border-left: none;
+        border-top: 1px solid var(--zm-border, #e5e7eb);
+    }
+
+    .zm-mega-row:first-child .zm-mega-field:first-child {
+        border-top: none;
+    }
+
+    .zm-mega-submit {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .zm-main,
+    .zm-main-zameen {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 0.85rem 2rem;
+    }
+
+    .zm-loc-sidebar {
+        max-height: 220px;
+        position: static;
+    }
+
+    .zm-page-intro {
+        padding: 0 0.85rem;
+    }
+
+    .zm-h1-count {
+        font-size: 1.25rem;
+        line-height: 1.45;
+    }
+
+    .zm-sort-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .zm-listing:not(.zm-listing--zameen) {
+        flex-direction: column;
+    }
+
+    .zm-listing:not(.zm-listing--zameen) .zm-listing-media {
+        width: 100%;
+        min-height: 200px;
+    }
+
+    .zm-cat-bar {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.35rem;
+    }
+
+    .zm-types-inner {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.35rem;
+    }
+
+    /* Dealer panel */
+    body.zm-dealer .dashboard-grid,
+    body.zm-dealer .stats-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    body.zm-dealer .header-inner {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    body.zm-dealer .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body.zm-dealer table {
+        min-width: 560px;
+    }
+
+    body.zm-dealer .settings-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ——— Small phones ——— */
+@media (max-width: 480px) {
+    .fr-logo img,
+    .logo-img--header {
+        height: 46px;
+        max-width: min(180px, 44vw);
+    }
+
+    .fr-header-actions .fr-btn-list {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.5rem;
+    }
+
+    .fr-topbar-links a[data-agency-email] {
+        display: none;
+    }
+
+    .fr-topbar-divider:nth-of-type(1),
+    .fr-topbar-divider:nth-of-type(2) {
+        display: none;
+    }
+
+    .fr-hero h1 {
+        font-size: 1.35rem;
+    }
+
+    .fr-trust-inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fr-trust-item strong {
+        font-size: 1.2rem;
+    }
+
+    .fr-footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fr-ad-marquee-track {
+        animation-duration: 18s;
+    }
+
+    .fr-ad-wa-icon-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .fr-ad-wa-svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+/* ——— Large desktop ——— */
+@media (min-width: 1400px) {
+    .fr-topbar-inner,
+    .fr-header-inner,
+    .fr-ad-strip-inner,
+    .fr-section-head,
+    .fr-props-grid,
+    .fr-footer-grid {
+        max-width: 1320px;
+    }
+}

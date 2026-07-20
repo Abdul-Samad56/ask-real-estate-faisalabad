@@ -1,0 +1,24 @@
+{
+  "name": "ask-real-estate-faisalabad",
+  "version": "2.0.0",
+  "private": true,
+  "description": "ASK REAL ESTATE FAISALABAD — dynamic site with MongoDB Atlas",
+  "main": "mongo-atlas-server.js",
+  "scripts": {
+    "start": "node mongo-atlas-server.js",
+    "dev": "node --watch mongo-atlas-server.js",
+    "seed": "node scripts/seed-atlas.js",
+    "sqlite": "node node-local-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5"
+  }
+}

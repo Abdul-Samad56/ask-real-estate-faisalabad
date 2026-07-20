@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="90" viewBox="0 0 1200 90" role="img" aria-label="ASK REAL ESTATE FAISALABAD">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d3b7a"/>
+      <stop offset="50%" stop-color="#1565c0"/>
+      <stop offset="100%" stop-color="#0d3b7a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="90" fill="url(#bg)"/>
+  <rect x="0" y="86" width="1200" height="4" fill="#f5a623"/>
+  <text x="600" y="38" fill="#ffffff" font-family="Arial,sans-serif" font-size="26" font-weight="700" text-anchor="middle">ASK REAL ESTATE FAISALABAD</text>
+  <text x="600" y="62" fill="#e3f2fd" font-family="Arial,sans-serif" font-size="16" text-anchor="middle">فیصل آباد میں مکان، دکان، آفس، پلاٹ — خرید · فروخت · کرایہ</text>
+  <rect x="920" y="28" width="140" height="34" rx="6" fill="#f5a623"/>
+  <text x="990" y="50" fill="#1a1a2e" font-family="Arial,sans-serif" font-size="14" font-weight="700" text-anchor="middle">رابطہ کریں</text>
+</svg>
