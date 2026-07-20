@@ -283,11 +283,7 @@ const FrLayout = {
             </div>
             <div class="fr-footer-bottom">© ASK REAL ESTATE FAISALABAD — تمام حقوق محفوظ</div>
         </footer>
-        <a href="tel:" class="fr-float-call" data-agency-phone data-phone-prefix="📞 " title="کال کریں"></a>
-        <div class="fr-cookie" id="cookieBanner" hidden>
-            <p>اس سائٹ پر آپ کا تجربہ بہتر بنانے کے لیے کوکیز استعمال ہوتی ہیں۔</p>
-            <button type="button" id="cookieAccept">اجازت دیں</button>
-        </div>`;
+        <a href="tel:" class="fr-float-call" data-agency-phone data-phone-prefix="📞 " title="کال کریں"></a>`;
     },
 
     injectLayout() {
@@ -313,17 +309,8 @@ const FrLayout = {
     },
 
     initCookies() {
-        const banner = document.getElementById('cookieBanner');
-        if (!banner) return;
-        if (localStorage.getItem(PropertyHub.STORAGE.cookiesOk)) {
-            banner.hidden = true;
-            return;
-        }
-        banner.hidden = false;
-        document.getElementById('cookieAccept')?.addEventListener('click', () => {
-            localStorage.setItem(PropertyHub.STORAGE.cookiesOk, '1');
-            banner.hidden = true;
-        });
+        /* cookie consent banner disabled */
+        document.getElementById('cookieBanner')?.remove();
     },
 
     initMobileMenu() {
