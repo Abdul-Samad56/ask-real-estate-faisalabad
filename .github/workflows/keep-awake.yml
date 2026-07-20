@@ -1,0 +1,29 @@
+# Keep Render free service awake (reduces cold-start / "APPLICATION LOADING")
+name: Keep Render Awake
+
+on:
+  schedule:
+    # every 10 minutes
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping live site health
+        run: |
+          set -e
+          URL="https://ask-real-estate-faisalabad.onrender.com/api/health"
+          echo "Pinging $URL"
+          for i in 1 2 3; do
+            if curl -fsS --max-time 90 "$URL"; then
+              echo ""
+              echo "OK (attempt $i)"
+              exit 0
+            fi
+            echo "Retry $i..."
+            sleep 5
+          done
+          echo "Ping failed"
+          exit 1
