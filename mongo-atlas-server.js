@@ -18,7 +18,9 @@ const jwt = require('jsonwebtoken');
 const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, 'data');
 const PORT = Number(process.env.PORT || process.env.ASK_LOCAL_PORT || 8000);
-const MONGODB_URI = process.env.MONGODB_URI || '';
+const MONGODB_URI = String(process.env.MONGODB_URI || '')
+  .trim()
+  .replace(/^["']|["']$/g, '');
 const JWT_SECRET = process.env.JWT_SECRET || 'ask-dev-secret-change-me';
 const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || 'abdulsamadkhattak5@gmail.com').toLowerCase();
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'AskAdmin@2026';
