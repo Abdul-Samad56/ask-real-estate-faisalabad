@@ -261,10 +261,21 @@ iframe {
         padding: 0 0.85rem 1.5rem;
     }
 
-    .fr-float-call {
+    .fr-float-wa {
         bottom: 1rem;
         left: 1rem;
         right: auto;
+        width: 56px;
+        height: 56px;
+    }
+
+    .fr-float-wa-icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .fr-float-call {
+        display: none !important;
     }
 
     /* Search page */

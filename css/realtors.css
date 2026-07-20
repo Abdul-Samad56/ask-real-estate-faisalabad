@@ -2115,38 +2115,53 @@
     margin-bottom: 0.5rem;
 }
 
-/* Float call + cookies */
-.fr-float-call {
+/* Float WhatsApp button */
+.fr-float-wa {
     position: fixed;
     bottom: 1.25rem;
     left: 1.25rem;
     z-index: 500;
-    background: var(--fr-gradient-gold);
-    color: white;
-    width: 58px;
-    height: 58px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 1.25rem;
-    box-shadow: 0 6px 24px rgba(25, 118, 210, 0.45);
-    transition: transform var(--fr-transition);
-    animation: frPulseCall 2.5s ease-in-out infinite;
+    color: #fff;
+    background: linear-gradient(145deg, #25d366 0%, #128c7e 100%);
+    box-shadow: 0 8px 28px rgba(18, 140, 126, 0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: frPulseWa 2.6s ease-in-out infinite;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
 }
 
-@keyframes frPulseCall {
-    0%, 100% { box-shadow: 0 6px 24px rgba(25, 118, 210, 0.45); }
-    50% { box-shadow: 0 6px 32px rgba(25, 118, 210, 0.65), 0 0 0 8px rgba(25, 118, 210, 0.15); }
+.fr-float-wa-icon {
+    width: 30px;
+    height: 30px;
+    display: block;
+    flex-shrink: 0;
 }
 
-.fr-float-call:hover {
+@keyframes frPulseWa {
+    0%, 100% {
+        box-shadow: 0 8px 28px rgba(18, 140, 126, 0.45);
+    }
+    50% {
+        box-shadow: 0 8px 34px rgba(37, 211, 102, 0.65), 0 0 0 10px rgba(37, 211, 102, 0.14);
+    }
+}
+
+.fr-float-wa:hover {
     transform: scale(1.08);
+    color: #fff;
 }
 
-.fr-float-call::before {
-    content: '📞';
+/* legacy alias if any old markup remains */
+.fr-float-call {
+    display: none !important;
 }
 
 .fr-cookie {
