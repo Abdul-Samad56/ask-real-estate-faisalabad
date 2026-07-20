@@ -48,8 +48,10 @@ const AskPwa = {
         if (!document.querySelector('link[rel="apple-touch-icon"]')) {
             const icon = document.createElement('link');
             icon.rel = 'apple-touch-icon';
-            icon.href = base + 'assets/logo.png';
+            icon.href = base + 'assets/apple-touch-icon.png';
             document.head.appendChild(icon);
+        } else {
+            document.querySelector('link[rel="apple-touch-icon"]').href = base + 'assets/apple-touch-icon.png';
         }
     },
 

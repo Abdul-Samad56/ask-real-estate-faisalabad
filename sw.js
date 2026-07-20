@@ -1,7 +1,7 @@
 /**
  * ASK REAL ESTATE — service worker (installable app + basic offline)
  */
-const CACHE_NAME = 'ask-realestate-v3';
+const CACHE_NAME = 'ask-realestate-v4';
 
 const CORE_ASSETS = [
     './',
@@ -10,6 +10,9 @@ const CORE_ASSETS = [
     './search.html',
     './assets/logo.png',
     './assets/logo-header.png',
+    './assets/icon-192.png',
+    './assets/icon-512.png',
+    './assets/apple-touch-icon.png',
     './css/style.css',
     './css/realtors.css',
     './css/zameen.css',
