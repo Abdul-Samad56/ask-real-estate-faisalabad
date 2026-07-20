@@ -404,7 +404,8 @@ const ZameenSite = {
         });
 
         document.querySelectorAll('[data-agency-wa]').forEach((el) => {
-            el.href = PropertyHub.whatsAppUrl(waMsg, phone);
+            const waPhone = agency.whatsapp || agency.phone || PropertyHub.DEFAULT_AGENCY.whatsapp || phone;
+            el.href = PropertyHub.whatsAppUrl(waMsg, waPhone);
             if (el.dataset.waLabel) el.textContent = el.dataset.waLabel;
         });
 
@@ -417,9 +418,10 @@ const ZameenSite = {
             const float = document.createElement('a');
             float.id = 'zmFloatWa';
             float.className = 'zm-float-wa';
-            float.href = PropertyHub.whatsAppUrl(waMsg, phone);
+            float.href = PropertyHub.whatsAppUrl(waMsg, agency.whatsapp || phone);
             float.target = '_blank';
-            float.title = 'WhatsApp — ' + (agency.contactName || '');
+            float.rel = 'noopener noreferrer';
+            float.title = 'WhatsApp — +923215315603';
             float.innerHTML = '<span>WhatsApp</span>';
             document.body.appendChild(float);
         }

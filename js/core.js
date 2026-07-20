@@ -8,7 +8,7 @@ const PropertyHub = {
         name: 'ASK REAL ESTATE FAISALABAD',
         contactName: 'حافظ عبدالصمد خٹک',
         phone: '0321-5315603',
-        whatsapp: '0321-5315603',
+        whatsapp: '+923215315603',
         email: 'abdulsamadkhattak5@gmail.com',
         address: 'فیصل آباد، پاکستان',
         city: 'Faisalabad',
@@ -1043,9 +1043,14 @@ const PropertyHub = {
     },
 
     whatsAppUrl(text, phone) {
-        const num = (phone || '').replace(/\D/g, '');
+        let num = String(phone || this.getAgency()?.whatsapp || this.getAgency()?.phone || this.DEFAULT_AGENCY.whatsapp || '')
+            .replace(/\D/g, '');
+        // پاکستان: 03xxxxxxxxx → 923xxxxxxxxx (+92)
+        if (num.startsWith('00')) num = num.slice(2);
+        if (num.startsWith('0')) num = '92' + num.slice(1);
+        if (!num.startsWith('92') && num.length === 10) num = '92' + num;
         const base = num ? `https://wa.me/${num}?text=` : 'https://wa.me/?text=';
-        return base + encodeURIComponent(text);
+        return base + encodeURIComponent(text || '');
     },
 
     exportJSON() {
