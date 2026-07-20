@@ -1726,7 +1726,7 @@
     max-width: 420px;
     margin: 0 auto;
     z-index: 500;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
     gap: 0.75rem;
@@ -1737,6 +1737,27 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
     border: 1px solid rgba(144, 202, 249, 0.35);
     backdrop-filter: blur(12px);
+    animation: frPwaSlideUp 0.35s ease;
+}
+
+.fr-pwa-banner.fr-pwa-banner-visible,
+.fr-pwa-banner:not([hidden]) {
+    display: flex;
+}
+
+.fr-pwa-banner[hidden] {
+    display: none !important;
+}
+
+@keyframes frPwaSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .fr-pwa-banner-text {
