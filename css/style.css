@@ -1,3 +1,4 @@
+@import url('fonts.css');
 @import url('responsive.css');
 
 :root {
@@ -12,8 +13,8 @@
     --border: #e5e7eb;
     --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     --radius: 10px;
-    --font-urdu: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;
-    --font-ui: 'Jameel Noori Nastaleeq', 'Noto Nastaliq Urdu', serif;
+    --font-urdu: 'Jameel Noori Nastaleeq', 'Jameel Noori Nastaleeq Regular', 'Noto Nastaliq Urdu', serif;
+    --font-ui: 'Jameel Noori Nastaleeq', 'Jameel Noori Nastaleeq Regular', 'Noto Nastaliq Urdu', serif;
 }
 
 * {

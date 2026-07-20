@@ -1,0 +1,74 @@
+/**
+ * ASK REAL ESTATE — جمیل نوری نستعلیق (پورے سائٹ کا اردو فونٹ)
+ */
+@import url('https://fonts.cdnfonts.com/css/jameel-noori-nastaleeq');
+
+:root {
+    --font-urdu: 'Jameel Noori Nastaleeq', 'Jameel Noori Nastaleeq Regular', 'Noto Nastaliq Urdu', serif;
+    --font-ui: 'Jameel Noori Nastaleeq', 'Jameel Noori Nastaleeq Regular', 'Noto Nastaliq Urdu', serif;
+    --font-en: 'Jameel Noori Nastaleeq', 'Jameel Noori Nastaleeq Regular', serif;
+}
+
+html {
+    font-size: 17px;
+}
+
+body,
+.fr-site,
+.zm-body {
+    font-family: var(--font-urdu) !important;
+    line-height: 2;
+    letter-spacing: 0.01em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6,
+.logo-text,
+.fr-brand-text,
+.fr-nav a,
+.fr-page-hero h1,
+.fr-section-title,
+.fr-prop-title,
+.fr-prop-price,
+.fr-btn-list,
+button,
+input,
+select,
+textarea,
+label,
+a,
+p,
+span,
+li,
+td,
+th,
+.btn,
+.zm-btn,
+.fr-auth-btn {
+    font-family: var(--font-urdu) !important;
+}
+
+h1 {
+    line-height: 1.9;
+    font-weight: 700;
+}
+
+h2, h3 {
+    line-height: 1.95;
+    font-weight: 600;
+}
+
+p, li, label, .fr-muted, .fr-bi-sub {
+    line-height: 2.05;
+}
+
+/* English helper lines — still Nastaleeq for consistency, slightly tighter */
+.fr-bi-sub--en,
+.fr-label-en,
+.en-text {
+    font-family: var(--font-urdu) !important;
+    opacity: 0.88;
+    line-height: 1.7;
+    letter-spacing: 0.02em;
+}
