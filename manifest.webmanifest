@@ -1,31 +1,32 @@
 {
+  "id": "/",
   "name": "ASK REAL ESTATE FAISALABAD",
   "short_name": "ASK Estate",
   "description": "فیصل آباد پراپرٹی — خرید، فروخت، کرایہ",
   "lang": "ur",
   "dir": "rtl",
-  "start_url": "./index.html",
-  "scope": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "background_color": "#082549",
   "theme_color": "#0d3b7a",
-  "categories": ["business", "real estate"],
+  "categories": ["business", "lifestyle"],
   "icons": [
     {
-      "src": "assets/logo.png",
+      "src": "/assets/logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/logo.png",
+      "src": "/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/logo.png",
+      "src": "/assets/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
