@@ -307,23 +307,25 @@ async function syncSubmissionsExcel() {
   );
 }
 
-async function main() {
+async function createApp() {
   if (!MONGODB_URI) {
-    console.error('MONGODB_URI missing.');
-    console.error('1) Copy .env.example to .env');
-    console.error('2) Paste your MongoDB Atlas connection string');
-    console.error('3) Run: npm run seed   then   npm start');
-    process.exit(1);
+    throw new Error('MONGODB_URI missing — set it in environment variables');
   }
 
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-  for (const [name, headers] of Object.entries(SHEET_HEADERS)) {
-    const fp = sheetCsvPath(name);
-    if (!fs.existsSync(fp)) writeCsvFile(fp, headers, []);
+  try {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+    for (const [name, headers] of Object.entries(SHEET_HEADERS)) {
+      const fp = sheetCsvPath(name);
+      if (!fs.existsSync(fp)) writeCsvFile(fp, headers, []);
+    }
+  } catch {
+    /* Vercel serverless filesystem may be read-only outside /tmp */
   }
 
-  await mongoose.connect(MONGODB_URI);
-  console.log('MongoDB Atlas connected');
+  if (mongoose.connection.readyState === 0) {
+    await mongoose.connect(MONGODB_URI);
+    console.log('MongoDB Atlas connected');
+  }
   await ensureAdmin();
 
   const app = express();
@@ -342,6 +344,7 @@ async function main() {
       dynamic: true,
       database: 'mongodb-atlas',
       connected: mongoose.connection.readyState === 1,
+      host: process.env.VERCEL ? 'vercel' : 'server',
     });
   });
 
@@ -543,13 +546,35 @@ async function main() {
     res.sendFile(index);
   });
 
-  app.listen(PORT, () => {
-    console.log(`ASK REAL ESTATE DYNAMIC: http://localhost:${PORT}/`);
-    console.log('Database: MongoDB Atlas');
-  });
+  return app;
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+let appPromise;
+function getApp() {
+  if (!appPromise) appPromise = createApp();
+  return appPromise;
+}
+
+async function main() {
+  try {
+    const app = await getApp();
+    app.listen(PORT, () => {
+      console.log(`ASK REAL ESTATE DYNAMIC: http://localhost:${PORT}/`);
+      console.log('Database: MongoDB Atlas');
+    });
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+}
+
+// Vercel serverless handler
+module.exports = async (req, res) => {
+  const app = await getApp();
+  return app(req, res);
+};
+
+// Local / Render: start HTTP server
+if (!process.env.VERCEL) {
+  main();
+}
