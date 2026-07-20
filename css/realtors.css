@@ -1850,9 +1850,28 @@
 
 .fr-footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem;
+    padding: 1.1rem 1rem 1.35rem;
     text-align: center;
     font-size: 0.85rem;
+}
+
+.fr-footer-copy {
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 0.45rem;
+}
+
+.fr-footer-admin {
+    display: inline-block;
+    color: var(--fr-gold, #c9a227) !important;
+    text-decoration: underline !important;
+    font-weight: 600;
+    font-family: Inter, system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    font-size: 0.95rem;
+}
+
+.fr-footer-admin:hover {
+    color: #e0c15a !important;
 }
 
 .fr-empty-msg {

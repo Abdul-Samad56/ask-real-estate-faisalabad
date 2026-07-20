@@ -1,7 +1,7 @@
 /**
  * ASK REAL ESTATE — service worker (installable app + basic offline)
  */
-const CACHE_NAME = 'ask-realestate-v7';
+const CACHE_NAME = 'ask-realestate-v8';
 
 const CORE_ASSETS = [
     './',

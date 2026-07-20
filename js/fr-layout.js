@@ -281,7 +281,10 @@ const FrLayout = {
                     <a href="#" data-agency-wa>WhatsApp</a>
                 </div>
             </div>
-            <div class="fr-footer-bottom">© ASK REAL ESTATE FAISALABAD — تمام حقوق محفوظ</div>
+            <div class="fr-footer-bottom">
+                <div class="fr-footer-copy">© ${new Date().getFullYear()}, ASK REAL ESTATE FAISALABAD</div>
+                <a href="dealer.html" class="fr-footer-admin">Admin</a>
+            </div>
         </footer>
         <a
             href="https://wa.me/923215315603"
